@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lineamientos IA Universitarios | Marco UNESCO</title>
+    <meta name="description" content="Marco integral para el uso responsable de Inteligencia Artificial en entornos universitarios basado en principios UNESCO">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1a4480;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #1a4480;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #1f3d72 100%);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,0 1000,1000"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.8;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #2d5016;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.9s both;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            background: #f8f9fa;
+            color: #4a7c59;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 0;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #2d5016, #4a7c59);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        /* Principles Section */
+        .principles {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .principles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .principle-card {
+            padding: 30px;
+            border-left: 5px solid #2d5016;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .principle-card:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(45, 80, 22, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .principle-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        /* Levels Section */
+        .levels {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1f3d72 0%, #2d5016 100%);
+            color: white;
+        }
+
+        .levels-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .level-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .level-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .level-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: white;
+            color: #2d5016;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-right: 15px;
+        }
+
+        .level-item h4 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Implementation Section */
+        .implementation {
+            padding: 100px 0;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .timeline {
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #4a7c59;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: 30px;
+            background: rgba(74, 124, 89, 0.1);
+            border-radius: 15px;
+            margin: 0 30px;
+            border: 1px solid rgba(74, 124, 89, 0.3);
+        }
+
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            background: #4a7c59;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+
+        .phase-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #4a7c59;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #2d5016 0%, #1f3d72 100%);
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2d5016;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a7c59;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .timeline-item:nth-child(even) {
+                flex-direction: column;
+            }
+
+            .timeline-marker {
+                left: 20px;
+            }
+
+            .timeline-content {
+                margin-left: 50px;
+                margin-right: 0;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">IA Universitaria</div>
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#principios">Principios</a></li>
+                    <li><a href="#niveles">Niveles</a></li>
+                    <li><a href="#implementacion">Implementación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Lineamientos para el Uso Responsable de IA en Universidades</h1>
+                <p class="subtitle">Marco de Referencia Basado en los Principios de la UNESCO</p>
+                <p class="description">
+                    Una propuesta integral que transforma la inteligencia artificial en un aliado para la excelencia académica, manteniendo el desarrollo humano como centro del proceso educativo.
+                </p>
+                <a href="#principios" class="cta-button">Explorar Framework</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">¿Por qué necesitamos estos lineamientos?</h2>
+            <p class="section-subtitle animate-on-scroll">
+                La IA representa una transformación paradigmática que requiere un enfoque holístico, ético y centrado en el desarrollo humano.
+            </p>
+            
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Uso Reflexivo</h3>
+                    <p>Establecemos una cultura de uso crítico y constructivo que va más allá de aproximaciones técnicas restrictivas.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">⚖️</div>
+                    <h3>Marco Ético</h3>
+                    <p>Fundamentado en principios UNESCO de inclusión, equidad, calidad educativa y diversidad cultural.</p>
+                </div>
+                
+                <div class="feature-card animate-on-scroll">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Desarrollo Integral</h3>
+                    <p>Potencia capacidades humanas sin sustituir el pensamiento crítico, creatividad o juicio ético.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Principles Section -->
+    <section id="principios" class="principles">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Marco Ético Institucional</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Cuatro principios fundamentales que guían la implementación responsable de IA en entornos educativos.
+            </p>
+            
+            <div class="principles-grid">
+                <div class="principle-card animate-on-scroll">
+                    <h4>Complementariedad Cognitiva</h4>
+                    <p>La IA funciona como amplificador de capacidades humanas, fortaleciendo la agencia intelectual del usuario sin reemplazar el pensamiento autónomo.</p>
+                </div>
+                
+                <div class="principle-card animate-on-scroll">
+                    <h4>Transparencia Epistémica</h4>
+                    <p>Documentación explícita de todo uso de IA, incluyendo herramientas, alcance, limitaciones y proceso de validación humana aplicado.</p>
+                </div>
+                
+                <div class="principle-card animate-on-scroll">
+                    <h4>Responsabilidad Distribuida</h4>
+                    <p>Cadena clara de responsabilidades entre usuario directo, institución supervisora y desarrolladores tecnológicos.</p>
+                </div>
+                
+                <div class="principle-card animate-on-scroll">
+                    <h4>Diversidad Metodológica</h4>
+                    <p>Promoción de múltiples aproximaciones pedagógicas que no dependan exclusivamente de tecnologías de IA.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Levels Section -->
+    <section id="niveles" class="levels">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Sistema de Niveles de Integración</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Categorización estructurada que va desde uso instrumental básico hasta experimentación avanzada con fines de investigación.
+            </p>
+            
+            <div class="levels-container">
+                <div class="level-item animate-on-scroll">
+                    <span class="level-number">I</span>
+                    <div>
+                        <h4>Uso Instrumental Básico</h4>
+                        <p>Corrección ortográfica, traducción, formateo de referencias. Sin supervisión especial requerida.</p>
+                    </div>
+                </div>
+                
+                <div class="level-item animate-on-scroll">
+                    <span class="level-number">II</span>
+                    <div>
+                        <h4>Uso Colaborativo Supervisado</h4>
+                        <p>Generación de ideas preliminares, análisis exploratorio de datos. Requiere acompañamiento docente.</p>
+                    </div>
+                </div>
+                
+                <div class="level-item animate-on-scroll">
+                    <span class="level-number">III</span>
+                    <div>
+                        <h4>Uso Avanzado con Validación</h4>
+                        <p>Análisis de grandes volúmenes de información, modelado predictivo. Protocolos institucionales estrictos.</p>
+                    </div>
+                </div>
+                
+                <div class="level-item animate-on-scroll">
+                    <span class="level-number">IV</span>
+                    <div>
+                        <h4>Uso Experimental de Investigación</h4>
+                        <p>Desarrollo de aplicaciones educativas, estudios de impacto. Protocolo de investigación aprobado por comité de ética.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section id="implementacion" class="implementation">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Cronograma de Implementación</h2>
+            <p class="section-subtitle animate-on-scroll">
+                Proceso gradual de implementación en tres fases estratégicas distribuidas a lo largo de 18 meses.
+            </p>
+            
+            <div class="timeline">
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Fase I - Fundamentos (6 meses)</div>
+                        <p>Capacitación básica en alfabetización digital avanzada e implementación de niveles I y II. Establecimiento de red de mentores tecnológicos.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Fase II - Desarrollo (12 meses)</div>
+                        <p>Desarrollo de competencias avanzadas e implementación de nivel III. Creación de comunidades de práctica interdisciplinarias.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item animate-on-scroll">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="phase-title">Fase III - Consolidación (18 meses)</div>
+                        <p>Consolidación completa del framework, evaluación integral de impacto y establecimiento de alianzas estratégicas internacionales.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="animate-on-scroll">Transformemos la Educación Superior</h2>
+            <p class="animate-on-scroll">
+                Únete a la revolución educativa responsable. Implementa un framework que equilibra innovación tecnológica con valores humanistas fundamentales.
+            </p>
+            <div class="cta-buttons animate-on-scroll">
+                <a href="#" class="btn-primary">Descargar Lineamientos Completos</a>
+                <a href="#" class="btn-secondary">Solicitar Consultoría</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Documento Completo</a></li>
+                        <li><a href="#">Guías de Implementación</a></li>
+                        <li><a href="#">Casos de Estudio</a></li>
+                        <li><a href="#">Material de Capacitación</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Principios UNESCO</h4>
+                    <ul>
+                        <li><a href="#">Inclusión y Equidad</a></li>
+                        <li><a href="#">Calidad Educativa</a></li>
+                        <li><a href="#">Diversidad Cultural</a></li>
+                        <li><a href="#">Desarrollo Sostenible</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contacto</h4>
+                    <ul>
+                        <li><a href="#">Consultoría Institucional</a></li>
+                        <li><a href="#">Capacitación Docente</a></li>
+                        <li><a href="#">Soporte Técnico</a></li>
+                        <li><a href="#">Comunidad de Práctica</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Colaboración</h4>
+                    <ul>
+                        <li><a href="#">Red Interinstitucional</a></li>
+                        <li><a href="#">Investigación Colaborativa</a></li>
+                        <li><a href="#">Política Pública</a></li>
+                        <li><a href="#">Estándares Internacionales</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Lineamientos IA Universitarios. Basado en principios UNESCO y mejores prácticas internacionales.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
